@@ -234,6 +234,9 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\slimmage.min.js" />
+    <Content Include="Views\Gallery.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

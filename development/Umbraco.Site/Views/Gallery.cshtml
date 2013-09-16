@@ -4,7 +4,7 @@
 @{
     Layout = "Master.cshtml";
     //for slimmage to adjust quality based on pixel ratio, quality querystring must be present
-    var gallery = Model.Content.GetCroppedImages("gallery", 400, null, quality:90, cropAlias:"Default", slimmage:true);
+    var gallery = Model.Content.GetCroppedImages("gallery", 400, null, quality:90, cropAlias:"gallery", slimmage:true);
 }
 
 
