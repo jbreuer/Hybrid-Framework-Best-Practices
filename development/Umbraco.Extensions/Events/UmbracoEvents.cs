@@ -60,7 +60,7 @@ namespace Umbraco.Extensions.Events
             Document.AfterMoveToTrash += Document_AfterMoveToTrash;
             Document.AfterDelete += Document_AfterDelete;
             Media.AfterSave += Media_AfterSave;
-            ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].GatheringNodeData += OnGatheringNodeData;
+            
 
             //By registering this here we can make sure that if route hijacking doesn't find a controller it will use this controller.
             //That way each page will always be routed through one of our controllers.
@@ -69,6 +69,7 @@ namespace Umbraco.Extensions.Events
 
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
+            ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].GatheringNodeData += OnGatheringNodeData;
         }
 
         protected void Document_New(Document sender, NewEventArgs e)
