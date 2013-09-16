@@ -157,8 +157,10 @@ namespace Umbraco.Extensions.Utilities
         /// <param name="alias"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
+        /// <param name="quality"></param>
+        /// <param name="slimmage"></param>
         /// <returns></returns>
-        public static IEnumerable<MediaItemCrop> GetCroppedImages(this IPublishedContent content, string alias, int width, int height, string altAlias = "")
+        public static IEnumerable<MediaItemCrop> GetCroppedImages(this IPublishedContent content, string alias, int width, int? height = null, string altAlias = "", int? quality = null, bool slimmage = false)
         {
             //Get all media items from DAMP.
             var dampModel = content.GetPropertyValue<DAMP.PropertyEditorValueConverter.Model>(alias);
@@ -177,7 +179,7 @@ namespace Umbraco.Extensions.Utilities
                 {
                     Url = m.Url,
                     Alt = !string.IsNullOrEmpty(altAlias) ? m.GetProperty(altAlias) : m.Alt,
-                    Crop = CropUp.GetUrl(m.Url, new ImageSizeArguments() { Width = width, Height = height }) + "?cropUpZoom=true",
+                    Crop = CropUp.GetUrl(m.Url, new ImageSizeArguments() { Width = width, Height = height }) + "&cropUpZoom=true" + (slimmage ? "&slimmage=true" : string.Empty) + (quality != null ? "&quality="+quality : null),
                     TrackLabel = !string.IsNullOrEmpty(m.GetProperty("trackLabel")) ? m.GetProperty("trackLabel") : "Media"
                 }
             );
