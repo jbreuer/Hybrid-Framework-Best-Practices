@@ -3,8 +3,10 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
-    var gallery = Model.Content.GetCroppedImages("gallery", 400, 300);
+    //for slimmage to adjust quality based on pixel ratio, quality querystring must be present
+    var gallery = Model.Content.GetCroppedImages("gallery", 600, null, quality:90, slimmage:true);
 }
+
 
 <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
 @(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
@@ -12,13 +14,13 @@
 @*Gallery*@
 @if (gallery.Any())
 {
-    <div style="clear: both;">
+    <div class="gallery">
         <ul>
             @foreach (var photo in gallery)
             {
                 <li>
                     <a href="@photo.Url" data-track="@photo.TrackLabel" target="_blank">
-                        <img src="@photo.Crop" alt="@photo.Alt" />
+                        <img class="gallery-image" src="@photo.Crop" alt="@photo.Alt" />
                     </a>
                 </li>
             }

@@ -23,4 +23,14 @@ img.align-right {
     margin: 0 0 10px 10px;
 }
 
+div.gallery {
+    clear: both;
+    width: 50%;
+    height:auto;
+}
+
+img.gallery-image {
+    width: 100%;
+}
+
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
