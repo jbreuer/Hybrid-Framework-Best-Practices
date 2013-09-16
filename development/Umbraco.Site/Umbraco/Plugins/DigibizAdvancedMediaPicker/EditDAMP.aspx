@@ -1,4 +1,4 @@
-﻿<%@ Page Language="c#" MasterPageFile="../../masterpages/umbracoPage.Master" Title="Select media item" CodeBehind="EditDAMP.aspx.cs" Inherits="DigibizAdvancedMediaPicker.EditDamp" AutoEventWireup="True"%>
+﻿<%@ Page Language="c#" MasterPageFile="../../masterpages/umbracoPage.Master" Title="Select media item" CodeBehind="EditDAMP.aspx.cs" Inherits="DigibizAdvancedMediaPicker.EditDamp" ValidateRequest="false" AutoEventWireup="True"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">

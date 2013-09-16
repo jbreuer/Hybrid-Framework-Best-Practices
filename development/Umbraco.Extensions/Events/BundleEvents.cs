@@ -75,6 +75,7 @@ namespace Umbraco.Extensions.Events
                     "~/scripts/jquery-1.10.2.js",
                     "~/umbraco/plugins/TrackMedia/Tracking.js",
                     "~/scripts/jquery.validate.js",
+                    "~/scripts/slimmage.js",
                     "~/scripts/functions.js"
                 )
             );
