@@ -1,0 +1,7 @@
+@using Umbraco.Extensions.Models.Custom;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<WidgetText>
+<div class="WidgetText">
+    @(Model.Title)
+    @(Model.Text)
+    <a href="@Model.Url.Url" target="@Model.Url.Target">@Model.Url.Title</a>
+</div>

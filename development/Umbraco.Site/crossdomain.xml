@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+
+<!--This crossdomain file is used for Pixlr support in the Digibiz Advanced Media Picker.-->
+
+<cross-domain-policy>
+	<allow-access-from domain="*" />
+	<site-control permitted-cross-domain-policies="master-only"/>
+	<allow-http-request-headers-from domain="*" headers="*" secure="true"/>
+</cross-domain-policy>

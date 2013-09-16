@@ -1,0 +1,16 @@
+img.align-left {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+ 
+img.align-center {
+    display: block;
+    margin: 0 auto 10px;
+}
+ 
+img.align-right {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

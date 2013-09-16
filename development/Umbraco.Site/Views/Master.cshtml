@@ -1,0 +1,76 @@
+﻿@using System.Web.Mvc.Html
+@using System.Web.Optimization
+@using Umbraco.Extensions.Models
+@using Umbraco.Extensions.Utilities
+@using Umbraco.Web
+@using SEOChecker.Library
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<BaseModel>
+@{
+    Layout = null;
+    var searchUrl = Umbraco.NiceUrl(Model.Content.TopPage().GetPropertyValue<int>("searchPage"));
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <title>@MetaData.Current.Title</title>
+        
+        <meta name="description" content="@MetaData.Current.Description">
+        <meta name="robots" content="@MetaData.Current.Robots" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width">
+
+        @*Bundle the js files.*@
+        @Scripts.Render("~/bundle/javascript.js")
+
+        @*Bundle the css files.*@
+        @Styles.Render("~/bundle/styles.css")
+
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36799430-3']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+    </head>
+    <body>
+
+        @*Menu*@
+        <div class="menu">
+            @foreach(var m in Model.MenuItems)
+            {
+                <p><a href="@m.Url">@m.Title</a></p>
+            }
+        </div>
+
+        @*Search form.*@
+        <form action="@searchUrl" method="GET">
+            <input type="text" name="q" />
+            <input type="submit" value="Search" />
+        </form>
+
+        @RenderBody()
+
+        @*Widgets*@
+        <aside id="sidebar">
+		    @foreach (var widget in Model.Widgets)
+            {
+                @Html.Partial(widget.View, widget)
+            }
+	    </aside>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+﻿.snippetContainer {
+    display: block;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    max-width: 510px;
+    min-height: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.snippetTitle {
+    font-size: 16px;
+    color: #1122CC;
+    text-decoration: underline;
+}
+
+.snippetUrl {
+    color: #282;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+span.snippetDate {
+    color: #666666;
+    font-weight: 400;
+}
+
+span.snippetDescription {
+    color: #222222;
+    font-weight: 400;
+}
+
+div.keywordvalidation {
+    height: 20px;
+}
+
+    div.keywordvalidation img {
+        margin: 0 3px 0 3px;
+    }
+
+ul.keywordValidationError {
+    padding: 0px;
+    margin:  0px 0px 0px 10px;
+    max-width: 500px;
+    word-wrap: break-word;
+}
+
+    ul.keywordValidationError li {
+        top:0px;
+        color: Red;
+        padding: 2px 0px 0px 0px;
+        margin: 0px;
+        border:0px;
+        text-indent: 0;
+        margin-bottom: 10px;
+    }
+
+span.keywordValidationError {
+    color: Red;
+    vertical-align: top;
+    line-height: 16px;
+}
+
+span.keywordValidationOk {
+    color: Green;
+    vertical-align: top;
+    line-height: 16px;
+}
+
+.SEOCheckerButton {
+    padding-left: 5px;
+}
+
+span#validationCaption 
+{
+    display:none;
+}

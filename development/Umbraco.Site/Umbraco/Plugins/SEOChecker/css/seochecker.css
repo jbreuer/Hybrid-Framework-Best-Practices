@@ -1,0 +1,98 @@
+﻿.SEOCheckerDropdown
+{
+    width:100px;
+}
+
+.SEOCheckerPageLogo
+{
+    float:left;
+    padding-top:10px;
+}
+
+.SEOCheckerPageTitle
+{
+    width:300px;
+    float:left;
+}
+.SEOCheckerPageIntro
+{
+    clear:both;
+    margin-left:10px;
+}
+#SEOCheckerTrialLicenseFeedback {
+    margin-top:5px;
+}
+
+.inboundLinkpropertyItemheader {
+    float: left;
+    font-weight: bold;
+    word-wrap: break-word;
+    padding-bottom: 10px;
+    padding-right: 1%;
+    width: 30%;
+}
+
+.SEOCheckerOverviewButtons
+{
+    float:right;
+}
+.SEOCheckerOverviewButton
+{
+    margin-left:5px;
+}
+
+.SEOCheckerOverviewResolvedIssue {
+    text-decoration:line-through;
+}
+
+.seoimageButton {
+ position: relative;
+    margin-left: 5px;
+    top: 7px;
+}
+
+.seoMenuButton {
+    width:14px;
+    height:14px;
+}
+
+.bulkActionControl {
+    margin-top: 2px;
+    float: right;
+}
+
+.bulkActionText {
+    position: relative;
+    top: 5px;
+    margin-right:5px;
+}
+
+.bulkItemSelectChecboxContainer {
+    float: left;
+    margin-right:5px;
+}
+
+.bulkActionbutton {
+    position: relative;
+    top: 7px;
+}
+
+#body_UmbracoPanel_menu_sl {
+    min-width:400px;
+}
+
+.fieldError {
+    color: red;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.seoCheckerPagedItem {
+    margin: 5px;
+}
+
+.seoCheckerPagingCurrent {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}

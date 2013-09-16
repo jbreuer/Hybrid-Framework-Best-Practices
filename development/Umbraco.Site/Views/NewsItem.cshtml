@@ -1,0 +1,17 @@
+﻿@using Umbraco.Web;
+@using Umbraco.Extensions.Models.Custom;
+@using Umbraco.Extensions.Utilities;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var image = Model.Content.GetCroppedImage("image", 300, 300);
+}
+
+<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+<p>@(Model.Content.GetPropertyValue<DateTime>("currentDate").ToString("F"))</p>
+<p>@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))</p>
+<p>
+    <a href="@image.Url" target="_blank" data-track="@image.TrackLabel">
+        <img src="@(image.Crop + "&quality=70")" alt="@image.Alt" />
+    </a>
+</p>

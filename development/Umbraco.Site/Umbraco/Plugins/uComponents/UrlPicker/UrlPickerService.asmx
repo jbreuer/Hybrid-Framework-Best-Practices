@@ -1,0 +1,1 @@
+<%@ WebService language="C#" class="uComponents.DataTypes.UrlPicker.Services.UrlPickerService" %>

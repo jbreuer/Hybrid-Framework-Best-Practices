@@ -1,0 +1,26 @@
+body {
+    font-family:Trebuchet MS, Arial, Verdana, Sans-Serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.error {
+    color: red;
+}
+
+img.align-left {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+ 
+img.align-center {
+    display: block;
+    margin: 0 auto 10px;
+}
+ 
+img.align-right {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

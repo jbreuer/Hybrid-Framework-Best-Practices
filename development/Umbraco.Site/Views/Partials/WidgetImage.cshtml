@@ -1,0 +1,9 @@
+@using Umbraco.Extensions.Models.Custom;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<WidgetImage>
+<div class="WidgetImage">
+    @(Model.Title)
+    @(Model.Text)
+    <a href="@Model.Image.Url" target="_blank" data-track="@Model.Image.TrackLabel">
+        <img src="@Model.Image.Crop" alt="@Model.Image.Alt" />
+    </a>
+</div>

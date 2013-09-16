@@ -1,0 +1,26 @@
+@using Umbraco.Web;
+@using Umbraco.Extensions.Utilities;
+@using Umbraco.Extensions.Models.Form;
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContactFormModel>
+
+@using (Html.BeginUmbracoForm("SendContact", "Contact", null, new { @id = "contactForm" }))
+{
+    <div>
+        <label for="Name">Name</label><br />
+        <input type="text" id="Name" name="Name" data-val-required="Name is mandatory" required />
+    </div>
+    
+    <div>
+        <label>Email</label><br />
+        <input type="text" name="Email" data-val-required="Email is mandatory" data-val-invalid="Email is not valid" required />
+    </div>
+    
+    <div>
+        <label>Comment</label><br />
+        <textarea rows="4" name="Comment" data-val-required="Comment is mandatory" required></textarea>
+    </div>
+    
+    <div class="row submit">
+        <button type="submit">Verzenden</button>
+    </div>
+}

@@ -1,0 +1,20 @@
+﻿@using System.Web.Mvc.Html;
+@using DevTrends.MvcDonutCaching;
+@using Umbraco.Web;
+@using Umbraco.Extensions.Models;
+@using Umbraco.Extensions.Models.Form;
+@using Umbraco.Extensions.Utilities;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
+
+@*An example that the rest of the page can be cached, but this partial view isn't.*@
+@Html.Action("ShowDates", "Contact", true)
+
+@*If the contact form would have some logic which could not be cached this could also be a Html.Action.*@
+@*The Html.Action would still go the ContactController so all logic is in the same controller. *@
+@Html.Partial("ContactForm", new ContactFormModel())

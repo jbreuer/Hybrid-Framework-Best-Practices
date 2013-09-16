@@ -1,0 +1,38 @@
+﻿.damp-table {background-color:#FFF;width:400px;}
+.damp-table img.cropped { border:1px dashed #8DCAF0; }
+.damp-table.sortable tr {padding-bottom:5px;cursor:move;}
+
+.damp-table tr td.innerCell{ border-bottom:1px dotted silver;border-top:1px dotted silver;background-color:#FFF;}
+.damp-table tr td.lastCell { border-right:1px dotted silver;border-bottom:1px dotted silver;border-top:1px dotted silver;background-color:#FFF;}
+.damp-table tr td.firstCell { border-left:1px dotted silver;border-bottom:1px dotted silver;border-top:1px dotted silver;background-color:#FFF;}
+
+.damp-table tr td.innerCell, .damp-table tr td.lastCell {padding:3px;}
+
+
+/* Drag And Drop Placeholder */
+.damp-table tr.drop-placeholder-row
+{
+    background-color:#FFF6BF;
+    border:1px solid #FFD324;
+}
+.damp-table tr.drop-placeholder-row td 
+{
+    background-color:#FFF6BF;
+}
+.damp-table tr.drop-placeholder-row td.firstCell
+{
+    border-left:1px solid #FFD324;
+    border-top:1px solid #FFD324;
+    border-bottom:1px solid #FFD324;
+}
+.damp-table tr.drop-placeholder-row td.innerCell
+{
+    border-top:1px solid #FFD324;
+    border-bottom:1px solid #FFD324;
+}
+.damp-table tr.drop-placeholder-row td.lastCell
+{
+    border-right:1px solid #FFD324;
+    border-top:1px solid #FFD324;
+    border-bottom:1px solid #FFD324;
+}

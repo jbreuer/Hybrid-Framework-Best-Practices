@@ -1,0 +1,27 @@
+﻿@using Umbraco.Web;
+@using Umbraco.Extensions.Utilities;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var gallery = Model.Content.GetCroppedImages("gallery", 400, 300);
+}
+
+<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
+
+@*Gallery*@
+@if (gallery.Any())
+{
+    <div style="clear: both;">
+        <ul>
+            @foreach (var photo in gallery)
+            {
+                <li>
+                    <a href="@photo.Url" data-track="@photo.TrackLabel" target="_blank">
+                        <img src="@photo.Crop" alt="@photo.Alt" />
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+}

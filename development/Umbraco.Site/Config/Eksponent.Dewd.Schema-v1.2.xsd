@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dewd"
+           targetNamespace="http://eksponent.com/dewd/1.2" 
+           xmlns:mstns="http://eksponent.com/dewd/1.2" 
+           xmlns="http://eksponent.com/dewd/1.2" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"            
+           attributeFormDefault="qualified" 
+           elementFormDefault="qualified">
+  
+  <xs:element name="container">
+    <xs:annotation>
+      <xs:documentation>Container corresponds to a folder in the tree and may contain one or more repositories.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="container" />
+          <xs:element ref="tweak" />
+          <xs:element ref="repository" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="name" form="unqualified" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>The name of the container shown in the left tree navigation. This attribute is required.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hidden" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Allows a container to be hidden from the tree (but stille accessible eg. for at custom module).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="drt" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Default repository type (DRT) allows an IRepository implementation to be specified for a subtree of containers and repositories.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="connection" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Only relevant for TableRespository: allows a custom connection string to be specified for a subtree of containers and repositories.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="url" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows a custom url to be displayed on the right side, when user clicks on the container in the tree.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="repository">
+    <xs:annotation>
+      <xs:documentation>A repository corresponds to a single set of data (eg. a SQL data table), which has one or more views and in most cases also an editor.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="primaryKey" minOccurs="0" maxOccurs="1" />
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:choice>
+            <xs:element ref="tweak" />
+            <xs:element ref="view" />
+          </xs:choice>          
+        </xs:sequence>
+        <xs:element ref="editor" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="name" form="unqualified" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>The name of the repository shown in the left tree navigation. This attribute is required.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Repositories.IRepository.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="icon" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Optional file name of icon shown in the left tree navigation.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="connection" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Only relevant for TableRespository: allows a custom connection string to be specified a repository.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="url" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Allows a custom url to be displayed on the right side, when user clicks on the repository in the tree.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hidden" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Allows a repository to be hidden from the tree (but stille accessible eg. for at custom module).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="primaryKey">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies the primary key used to uniquely identify a single record in the data set. When a user clicks on a row in the view grid, the primary key of that row is given to the editor which in turn can look up the row in the data set and retrieve its field values.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="name" form="unqualified" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The name of the primary key to be used. Should correspond to the name of the primary key in the view and the primary key of the editor data source. This attribute is required.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="manual" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            If the value of the primary key column is entered manually instead of being autogenerated by the data store, this parameter should be set to: true
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="sql" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>
+        Relevant to implementations of IView: TableView. Contains the SQL to execute against the database to retrieve the data, which is shown on the view page (statement is written inside the sql-node).
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="snippet" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>
+        Relevant to implementations of IViewControl: Snippet.
+        Experimental control type which allows the developer to include an ASP.NET control declaration, which is then used as grid.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="htmlInject">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:attribute name="location" form="unqualified">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="body"/>
+            <xs:enumeration value="head"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="IValueGetter-Standard">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null" />
+      <xs:enumeration value="dbnull" />
+      <xs:enumeration value="today" />
+      <xs:enumeration value="now" />
+      <xs:enumeration value="now-utc" />
+      <xs:enumeration value="guid" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="parameter">
+    <xs:annotation>
+      <xs:documentation>
+        Relevant to implementations of IView: TableView. May be used to add SQL parameters for the sql-node. Uses the same value-getter logic as defaultValue-node.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Fields.ValueGetters.IValueGetter.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="get" form="unqualified" type="IValueGetter-Standard">
+        <xs:annotation>
+          <xs:documentation>Relevant to implementations of IValueGetter: Standard. Provides a set of common operations for setting the value.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="targetType" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows type conversion to take place. Default namespace is System.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="column">
+    <xs:annotation>
+      <xs:documentation>
+        Relevant to implementations of IViewControl: ScrollingGrid. Allows simple configuration of each column in the grid including formatting, header.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Allows a custom column type to be used. Type must inherit from DataControlField.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="field" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            A single field name or a comma separated list of field names to display. If multiple fields are specified format-attribute should be used to format the output.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="format" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            A String.Format to apply to the data value of each field. Optional.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="title" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Header/title of the column. Optional.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="width" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Width of the column. Optional.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="nowrap" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Whether to disable text wrapping for the cells. Optional.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="view">
+    <xs:annotation>
+      <xs:documentation><![CDATA[
+        Defines which data is retrieved from the data store and how the data is shown. When the user clicks on a repository in the left tree navigation, the default view (first view-childnode of <repository>) is shown on the right side. The view can support paging and searching. If an editor is defined as well, the view will show "Edit"-links in the first column of the grid as well as an "Create new..."-button.
+      ]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="sql" minOccurs="0" maxOccurs="1" />
+          <xs:element ref="snippet" minOccurs="0" maxOccurs="1" />
+          <xs:element ref="tweak" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element ref="htmlInject" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element ref="parameter" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="columns" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>May contain a comma separated list of column names to display in the grid or a list of column-subnodes, which defines how each column should be displayed.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType mixed="true">
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="tweak" />
+                  <xs:element ref="column" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="name" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The name of the view which is shown in the "Select view"-dropdown at the top of the view page. This attribute is required.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Views.IView.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="controlType" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default list/grid control implementation to be overridden. The specified type must implement Eksponent.Dewd.Controls.View.IViewControl.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="pageSize" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Allows a page size to be specified. Default is 20.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="Editor-Events">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BeforeSave" />
+      <xs:enumeration value="AfterSave" />
+      <xs:enumeration value="BeforeDelete" />
+      <xs:enumeration value="AfterDelete" />
+      <xs:enumeration value="PageInit" />
+      <xs:enumeration value="PageLoad" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="event">
+    <xs:annotation>
+      <xs:documentation>Allows simple handlers for events to configured.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="name" form="unqualified" type="Editor-Events" use="required">
+        <xs:annotation>
+          <xs:documentation>The event to handle.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="handler" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Method identifier pointing to a static method to handle the event, eg. MyNameSpace.MyType.MyMethod,MyAssembly.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="button">
+    <xs:annotation>
+      <xs:documentation>Allows a custom button to be added to the user interface.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Implementation type (must inherit from CustomButton). Build-in implementations: ExportToExcelButton.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="text" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Text to display when hovering over the button with the pointer.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="handler" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Method identifier pointing to a static method to handle the click event, eg. MyNameSpace.MyType.MyMethod,MyAssembly.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="icon" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Icon to display.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="onClientClick" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Client side javascript to fire, before posting back (for confirmations etc.).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="nullable">
+    <xs:annotation>
+      <xs:documentation>
+        Relevant to implementations: TableView. Specifies that the field should save a DbNull value to the database field, when a certain value is entered in the field.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="whenValueEquals" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Value that triggers the DbNull value. An empty string is the default trigger.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="listControlDataSource">
+    <xs:annotation>
+      <xs:documentation>
+        Relevant to umbracoDataType(s): Dewd Dropdown, Dewd DuoSelect. Allows list items on certain editor controls (see "Relevant to umbracoDataType") to be generated dynamically. This is highly relevant for fields having relations to other database tables or entities.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="sql" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="parameter" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Controls.IListControlDataSource.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="includeEmpty" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            When set to true this automatically inserts an empty item (with the text: Select ...) at the beginning of the list items.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="emptyValue" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            If "includeEmpty" is set to true, this specifies the value that value that should be returned when the first (Select...) list item is selected by the user.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="select">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation>
+          Element allowing configuration of the DuoSelect editor control (data type).
+        </xs:documentation>
+      </xs:annotation>
+      <xs:attribute name="sortable" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            When set to true, allows the user to sort the select values inside the DuoSelect editor control.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="linkingField">
+    <xs:annotation>
+      <xs:documentation>
+        Element allowing configuration the field type TableLinkingField, which is used to support simple many-to-many relationships between tables.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="linkingTable" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the name of the linking table which contains two columns of keys.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="localKey" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the key/column in the linking table which corresponds to the ID (primary key) of the row being edited.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="foreignKey" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the key/column in the linking table which corresponds to the values returned from the editor control. In the example above this would be ID in the Categories table.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="validation">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies what kind of validation should be applied to the field. A field may contain multiple validation sub-nodes which are evaluated in the order they appear in the configuration file.
+        The default implementation (Eksponent.Dewd.Fields.Validators.Required) simply checks whether the field contains a value (string has length greater than zero).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Fields.Validators.IValidator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="errorText" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Text which is displayed in the validation summary if validation fails, eg. "Error in field {0}" (first string argument is replaced by the field name, all IValidator implementations should support this).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="required" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Relevant to Required type. Specifies whether a field value is required (should always be set to true).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="trim" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Relevant to Required type. Specifies if the value is left/right-trimmed for whitespace.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="pattern" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Relevant to RegEx type. Specifies the RegEx pattern to match against. If the specified pattern does not match the value, the validation fails.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="revertTrigger">
+    <xs:annotation>
+      <xs:documentation>
+        Allows the field to revert to the default value, if a specific value is specificed in the field (eg. in an editor control). One or more revertTrigger nodes may be specified. The default implementation simply checks whether the field value is null or an empty string.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Fields.Criteria.ICriterion.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="negate" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Apply a NOT operator to the criterion thus reversing its result.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="trim" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Relevant to IsNullOrEmpty type. Trims the input value before checking whether it's empty.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="pattern" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Relevant to RegEx type. Allows a regular expression to determine whether the default value should be used.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="defaultValue">
+    <xs:annotation>
+      <xs:documentation>
+        Allows a default value to be specified for the field. Optionally the field can revert to the default value eg. if a certain value is specified by the user. The Standard implementation allows a value to be specified as text in the defaultElement or in the value-subelement. Please note that for simple default values you can choose to use the defaultValue attribute on the field node instead.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Node containing the value to set.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="revertTrigger" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Fields.ValueGetters.IValueGetter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="get" form="unqualified" type="IValueGetter-Standard">
+        <xs:annotation>
+          <xs:documentation>Relevant to implementations of IValueGetter: Standard. Provides a set of common operations for setting the value.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="targetType" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows type conversion to take place.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="field">
+    <xs:annotation>
+      <xs:documentation>
+        Defines how a single column/property in the data source should be handled by the editor eg. which umbraco editor control should be used to edit the content.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="caption" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>If specified the value will be displayed as text under the field name.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="nullable" />
+          <xs:element ref="listControlDataSource" />
+          <xs:element ref="select" />
+          <xs:element ref="linkingField" />
+          <xs:element ref="validation" />
+          <xs:element ref="defaultValue" />
+          <xs:element ref="tweak" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="title" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Title which is displayed to the left of the editor control.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="sourceField" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Column/property/field name in the data set to get and set value to.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="umbracoDataType" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Umbraco content editor control (input field) displayed. Can be either named data type (eg. Textstring) or specified via ID. Optional attribute.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Fields.IField.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="tabTitle" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the tab in the user interface to place the field in.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="format" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows a String.Format to be applied to the value before being sent to the editor control. Useful for number formatting etc., so on a floating point column you could use format="{0:0.00}" to limit value displayed to two decimals.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="culture" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows a custom culture to be used when formatting the value using the string format specified in the format-attribute.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="readonly" form="unqualified" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>
+            Tells the editor to ignore the field, when updating the data source (eg. for calculated or auto-generated columns).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="defaultValue" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Allows a default value to be specified for new rows.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="editor">
+    <xs:annotation>
+      <xs:documentation>Defines how a record in the data set should be edited eg. which fields should be shown to the editor.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="tweak" />
+          <xs:element ref="event" />
+          <xs:element ref="button"/>
+          <xs:element ref="field" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="type" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Allows the default implementation to be overridden. The specified type must implement Eksponent.Dewd.Editors.IEditor. Very relevant if you want to have special save/delete events for your editor.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="tableName" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Relevant implementations: TableEditor. The name of the database table which the record to edit is located in.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="Tweak-Actions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="clone" />
+      <xs:enumeration value="remove" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="tweak">
+    <xs:annotation>
+      <xs:documentation>
+        Speciel element for tweaking the configuration file as it is loaded. The main purpose of the tweak-element is to include other config-files and get rid of redundancy inside the configuration file. At present the tweak element is able to clone or remove elements.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="do" form="unqualified">
+        <xs:annotation>
+          <xs:documentation>Tells tweak what to do: clone or remove.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="Tweak-Actions" />
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="select" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>XPath which filters the elements to be cloned. If no external file is loaded, the xpath is run against the local document (using tweak-node as source).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="external" form="unqualified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Path of an external configuration file to be loaded and included. Path may include (end with) wildcard, eg. /config/dewd/*.config
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dewd">
+    <xs:annotation>
+      <xs:documentation>Root node in configuration file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="container" />
+        <xs:element ref="tweak" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
