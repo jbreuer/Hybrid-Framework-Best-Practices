@@ -7,7 +7,6 @@
     var gallery = Model.Content.GetCroppedImages("gallery", 400, null, quality:90, cropAlias:"gallery", slimmage:true);
 }
 
-
 <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
 @(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
 
