@@ -95,6 +95,8 @@ publish/
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 packages/
 
+!development/Umbraco.Site/App_Data/packages
+
 # Windows Azure Build Output
 csx
 *.build.csdef
