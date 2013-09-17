@@ -7,10 +7,12 @@
     var image = Model.Content.GetCroppedImage("image", 300, 300);
 }
 
-<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
-<p>@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))</p>
+<section class="main-content">
+    <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+    <p>@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))</p>
 
-@if(image.HasValue)
-{
-    <p><img src="@image.Crop" alt="@image.Alt" data-track="@image.TrackLabel" /></p>
-}
+    @if(image.HasValue)
+    {
+        <p><img src="@image.Crop" alt="@image.Alt" data-track="@image.TrackLabel" /></p>
+    }
+</section>

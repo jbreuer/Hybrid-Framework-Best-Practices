@@ -1,11 +1,211 @@
 body {
-    font-family:Trebuchet MS, Arial, Verdana, Sans-Serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     line-height: 1.4;
+    margin:0px;
+    padding:0px;
 }
+
+/* -- MAIN -- */
+
+.main {
+    float:left;
+    width:100%;
+}
+.wrapper {
+    margin:0 auto;
+    width:80%;
+}
+
+H1 {
+    font-size:30px;
+}
+
+/* -- HEADER -- */
+
+header {
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+    float:left;
+    margin: 0 0 30px 0;
+    width: 100%;
+}
+
+header .logo {
+    background: url(/images/umbraco-love.png) no-repeat center left;
+    color: #000;
+    float: left;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 10px 0px 0px 0px;
+    padding: 6px 0px 0px 50px;
+    text-decoration: none;
+}
+
+/* -- NAV -- */
+
+nav {
+    float: right;
+}
+
+nav ul {
+    float: right;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+    nav ul li {
+        float:left;
+        padding: 0px 15px;
+        min-height:62px;
+    }
+
+    nav ul li:last-child {
+        float:left;
+        padding: 0px 0px 0px 15px;
+    }
+
+        nav ul li a {
+            color: #a5a5a5;
+            float:left;
+            padding: 20px 0px;
+        }
+
+        nav ul li.active a {
+            border-bottom: 3px solid #00A1F1;
+            color: #00A1F1;
+            text-decoration: none;
+        }
+
+/* -- HEADER SEARCH -- */
+
+.search-form {
+    float: right;
+    text-align: right;
+    width: 100%;
+}
+
+textarea, input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"] {
+    border: 2px solid #eee;
+    background:#fff;
+    color: #34495e;
+    font-size: 14px;
+    padding: 8px 5px;
+    height: 21px;
+    text-indent: 6px;
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border .25s linear, color .25s linear;
+    -moz-transition: border .25s linear, color .25s linear;
+    -o-transition: border .25s linear, color .25s linear;
+    transition: border .25s linear, color .25s linear;
+    -webkit-backface-visibility: hidden;
+}
+
+input[type="submit"] {
+    border: none;
+    background: #eee;
+    color: #a5a5a5;
+    padding: 9px 12px 10px;
+    line-height: 22px;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+    cursor:pointer;
+    margin:0px;
+}
+
+input[type="submit"]:hover {
+    color:#fff;
+}
+
+
+textarea, input[type="text"]:focus, 
+input[type="password"]:focus, 
+input[type="datetime"]:focus, 
+input[type="datetime-local"]:focus, 
+input[type="date"]:focus, 
+input[type="month"]:focus, 
+input[type="time"]:focus, 
+input[type="week"]:focus, 
+input[type="number"]:focus, 
+input[type="email"]:focus, 
+input[type="url"]:focus, 
+input[type="search"]:focus, 
+input[type="tel"]:focus, 
+input[type="color"]:focus {
+    border: 2px solid #00A1F1;
+    outline: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+}
+
+input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:focus {
+    background-color: #00A1F1;
+}
+
+/* -- MAIN CONTENT -- */
+
+.main-content {
+    float:left;
+    width:100%;
+}
+
+/* -- FORM -- */
 
 .error {
     color: red;
+}
+
+/* -- GALLERY -- */
+
+.gallery {
+    clear: both;
+    width: 100%;
+    height:auto;
+}
+
+    .gallery ul {
+        margin:0px;
+        padding:0px;
+    }
+
+        .gallery ul li {
+            margin: 0 25px 25px 0px;
+            position: relative;
+            padding: 0;
+            display: block;
+            float: left;
+            width: 30%;
+        }
+
+img.gallery-image {
+    width: 100%;
 }
 
 img.align-left {
@@ -21,16 +221,6 @@ img.align-center {
 img.align-right {
     float: right;
     margin: 0 0 10px 10px;
-}
-
-div.gallery {
-    clear: both;
-    width: 50%;
-    height:auto;
-}
-
-img.gallery-image {
-    width: 100%;
 }
 
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

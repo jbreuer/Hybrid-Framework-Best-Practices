@@ -19,7 +19,7 @@ namespace Umbraco.Extensions.Controllers
         /// Currently there is no logic in the home controller, but it usually needs a lot of logic so the controller and model are already available.
         /// </summary>
         /// <returns></returns>
-        [DonutOutputCache(Duration = 86400, Location = OutputCacheLocation.Server, VaryByCustom = "url;device")]
+        //[DonutOutputCache(Duration = 86400, Location = OutputCacheLocation.Server, VaryByCustom = "url;device")]
         public ActionResult Home()
         {
             var model = GetModel<HomeModel>();

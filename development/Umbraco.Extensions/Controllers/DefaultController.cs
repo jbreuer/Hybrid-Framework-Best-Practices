@@ -21,7 +21,7 @@ namespace Umbraco.Extensions.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [DonutOutputCache(Duration = 86400, Location = OutputCacheLocation.Server, VaryByCustom = "url;device")]
+        //[DonutOutputCache(Duration = 86400, Location = OutputCacheLocation.Server, VaryByCustom = "url;device")]
         public override ActionResult Index(RenderModel model)
         {
             var baseModel = GetModel<BaseModel>();

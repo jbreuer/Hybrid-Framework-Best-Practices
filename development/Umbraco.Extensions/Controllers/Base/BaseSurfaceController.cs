@@ -106,7 +106,8 @@ namespace Umbraco.Extensions.Controllers.Base
                 {
                     Id = n.Id,
                     Title = n.GetPropertyValue<string>("menuTitle"),
-                    Url = n.Url()
+                    Url = n.Url(),
+                    ActiveClass = CurrentPage.Path.Contains(n.Id.ToString()) ? "active" : null
                 }
             );
         }

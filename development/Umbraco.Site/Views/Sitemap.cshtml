@@ -6,24 +6,26 @@
     Layout = "Master.cshtml";
 }
 
-<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
-@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
+<section class="main-content">
+    <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+    @(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
 
-@*Show the sitemap items recursively*@
-@ShowSitemap(Model.SitemapItems)
+    @*Show the sitemap items recursively*@
+    @ShowSitemap(Model.SitemapItems)
 
-@helper ShowSitemap(IEnumerable<SitemapItem> sitemapItems)
-{
-    if(sitemapItems.Any())
+    @helper ShowSitemap(IEnumerable<SitemapItem> sitemapItems)
     {
-        <ul>
-            @foreach (var sitemapItem in sitemapItems)
-            {
-                <li>
-                    <a href="@sitemapItem.Url">@sitemapItem.Name</a>
-                    @ShowSitemap(sitemapItem.Children)
-                </li>
-            }
-        </ul>
+        if(sitemapItems.Any())
+        {
+            <ul>
+                @foreach (var sitemapItem in sitemapItems)
+                {
+                    <li>
+                        <a href="@sitemapItem.Url">@sitemapItem.Name</a>
+                        @ShowSitemap(sitemapItem.Children)
+                    </li>
+                }
+            </ul>
+        }
     }
-}
+</section>

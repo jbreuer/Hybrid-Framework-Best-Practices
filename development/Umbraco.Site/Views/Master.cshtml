@@ -32,6 +32,8 @@
         @*Bundle the css files.*@
         @Styles.Render("~/bundle/styles.css")
 
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -48,29 +50,42 @@
 
     </head>
     <body>
+        <header>
+            <div class="wrapper">
+                @*Logo*@
+                <a href="/" class="logo">Hybrid Framework Best Practises</a>
+            
+                @*Menu*@
+                <nav>
+                    <ul>
+                    @foreach(var m in Model.MenuItems)
+                    {
+                        <li class="@m.ActiveClass"><a href="@m.Url">@m.Title</a></li>
+                    }
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="main">
+            <div class="wrapper">
 
-        @*Menu*@
-        <div class="menu">
-            @foreach(var m in Model.MenuItems)
-            {
-                <p><a href="@m.Url">@m.Title</a></p>
-            }
-        </div>
+                @*Search form.*@
+                <form action="@searchUrl" method="GET" class="search-form">
+                    <input type="text" name="q" />
+                    <input type="submit" value="Search" />
+                </form>
 
-        @*Search form.*@
-        <form action="@searchUrl" method="GET">
-            <input type="text" name="q" />
-            <input type="submit" value="Search" />
-        </form>
+                @RenderBody()
 
-        @RenderBody()
-
-        @*Widgets*@
-        <aside id="sidebar">
-		    @foreach (var widget in Model.Widgets)
-            {
-                @Html.Partial(widget.View, widget)
-            }
-	    </aside>
+                @*Widgets*@
+                <aside id="sidebar">
+		            @foreach (var widget in Model.Widgets)
+                    {
+                        @Html.Partial(widget.View, widget)
+                    }
+	            </aside>
+            </div>
+        </section>
     </body>
 </html>
