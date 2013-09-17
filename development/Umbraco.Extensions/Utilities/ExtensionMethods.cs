@@ -28,6 +28,8 @@ using Umbraco.Web;
 
 namespace Umbraco.Extensions.Utilities
 {
+    using umbraco.cms.helpers;
+
     public static class ExtensionMethods
     {
         private static UmbracoHelper Umbraco
@@ -115,7 +117,7 @@ namespace Umbraco.Extensions.Utilities
             {
                 Url = dampMedia.Url,
                 Alt = !string.IsNullOrEmpty(altAlias) ? dampMedia.GetProperty(altAlias) : dampMedia.Alt,
-                Crop = CropUp.GetUrl(dampMedia.Url, new ImageSizeArguments() { Width = width, Height = height, CropAlias = cropAlias }) + "&cropUpZoom=true" + (slimmage ? "&slimmage=true" : string.Empty) + (quality != null ? "&quality=" + quality : null),
+                Crop = CropUpExtendedUrl(dampMedia.Url, new ImageSizeArguments() { Width = width, Height = height, CropAlias = cropAlias }, "cropUpZoom=true" + (slimmage ? "&slimmage=true" : string.Empty) + (quality != null ? "&quality=" + quality : null)),
                 TrackLabel = !string.IsNullOrEmpty(dampMedia.GetProperty("trackLabel")) ? dampMedia.GetProperty("trackLabel") : "Media"
             };
         }
@@ -173,16 +175,44 @@ namespace Umbraco.Extensions.Utilities
 
             //Return the media items with the properties set.
             return
-            (
-                from m in dampModel
+            from m in dampModel
                 select new MediaItemCrop()
                 {
                     Url = m.Url,
                     Alt = !string.IsNullOrEmpty(altAlias) ? m.GetProperty(altAlias) : m.Alt,
-                    Crop = CropUp.GetUrl(m.Url, new ImageSizeArguments() { Width = width, Height = height, CropAlias = cropAlias}) + "&cropUpZoom=true" + (slimmage ? "&slimmage=true" : string.Empty) + (quality != null ? "&quality="+quality : null),
-                    TrackLabel = !string.IsNullOrEmpty(m.GetProperty("trackLabel")) ? m.GetProperty("trackLabel") : "Media"
-                }
-            );
+                    Crop = CropUpExtendedUrl(m.Url, new ImageSizeArguments() { Width = width, Height = height, CropAlias = cropAlias }, "cropUpZoom=true" + (slimmage ? "&slimmage=true" : string.Empty) + (quality != null ? "&quality=" + quality : null)),
+                    TrackLabel =
+                        !string.IsNullOrEmpty(m.GetProperty("trackLabel")) ? m.GetProperty("trackLabel") : "Media"
+                };
+        }
+
+
+        /// <summary>
+        /// The crop up extended url.
+        /// </summary>
+        /// <param name="url">
+        /// The url.
+        /// </param>
+        /// <param name="sizeArgs">
+        /// The size args.
+        /// </param>
+        /// <param name="additionalVars">
+        /// The additional query string variables
+        /// </param>
+        /// <returns>
+        /// The full CropUp media item url
+        /// </returns>
+        private static string CropUpExtendedUrl(string url, ImageSizeArguments sizeArgs, string additionalVars = "")
+        {
+            // Check if the url returned by CropUp contains a ? so that the additional variables are appended correctly
+            var cropUpUrl = CropUp.GetUrl(url, sizeArgs);
+            var queryStringSymbol = cropUpUrl.IndexOf('?') == -1 ? "?" : "&";
+            if (!string.IsNullOrEmpty(additionalVars))
+            {
+                return cropUpUrl + queryStringSymbol + additionalVars;
+            }
+
+            return cropUpUrl;
         }
 
         #endregion
