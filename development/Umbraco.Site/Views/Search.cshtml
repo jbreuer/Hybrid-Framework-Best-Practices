@@ -3,17 +3,15 @@
     Layout = "Master.cshtml";
 }
 
-<section class="main-content">
-    @*Examine search results.*@
-    @Umbraco.RenderMacro("ezSearch", new {
-        rootContentNodeId="1079" , 
-        rootMediaNodeId="-1" , 
-        indexType="Both" , 
-        searchFields="" , 
-        previewFields="" , 
-        previewLength="" , 
-        pageSize="" , 
-        hideFromSearchField="" , 
-        searchFormLocation="None" 
-    })
-</section>
+@*Examine search results.*@
+@Umbraco.RenderMacro("ezSearch", new {
+    rootContentNodeId="1079" , 
+    rootMediaNodeId="-1" , 
+    indexType="Both" , 
+    searchFields="" , 
+    previewFields="" , 
+    previewLength="" , 
+    pageSize="" , 
+    hideFromSearchField="" , 
+    searchFormLocation="None" 
+})

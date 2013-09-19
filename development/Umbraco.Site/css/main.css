@@ -6,6 +6,10 @@ body {
     padding:0px;
 }
 
+img {
+    border:0px;
+}
+
 /* -- MAIN -- */
 
 .main {
@@ -118,7 +122,8 @@ input[type="color"] {
     -webkit-backface-visibility: hidden;
 }
 
-input[type="submit"] {
+input[type="submit"],
+button[type="submit"] {
     border: none;
     background: #eee;
     color: #a5a5a5;
@@ -138,12 +143,13 @@ input[type="submit"] {
     margin:0px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+button[type="submit"]:hover {
     color:#fff;
 }
 
-
-textarea, input[type="text"]:focus, 
+textarea:focus, 
+input[type="text"]:focus, 
 input[type="password"]:focus, 
 input[type="datetime"]:focus, 
 input[type="datetime-local"]:focus, 
@@ -165,7 +171,10 @@ input[type="color"]:focus {
     transition: 0.25s;
 }
 
-input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:focus {
+input[type="submit"]:hover, 
+input[type="submit"]:focus,
+button[type="submit"]:hover, 
+button[type="submit"]:focus {
     background-color: #00A1F1;
 }
 
@@ -174,6 +183,11 @@ input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:foc
 .main-content {
     float:left;
     width:100%;
+    padding: 0px 0px 50px 0px;
+}
+.main-content.widgetWidth {
+    float:left;
+    width:70%;
 }
 
 /* -- FORM -- */
@@ -181,6 +195,23 @@ input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:foc
 .error {
     color: red;
 }
+
+/* -- SIDEBAR -- */
+
+#sidebar {
+    width:30%;
+    float:left;
+    margin-top:50px;
+}
+.widgetItem {
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+    margin-bottom:20px;
+    padding:5%;
+}
+    .widgetItem.widgetImage img {
+        width:100%;
+    }
 
 /* -- GALLERY -- */
 
@@ -196,31 +227,84 @@ input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:foc
     }
 
         .gallery ul li {
-            margin: 0 25px 25px 0px;
+            margin:0px;
             position: relative;
             padding: 0;
             display: block;
-            float: left;
-            width: 30%;
+            float: right;
+            width: 48%;
+            margin:1%;
         }
 
-img.gallery-image {
+.gallery-image {
     width: 100%;
 }
 
-img.align-left {
+.align-left {
     float: left;
     margin: 0 10px 10px 0;
 }
  
-img.align-center {
+.align-center {
     display: block;
     margin: 0 auto 10px;
 }
  
-img.align-right {
+.align-right {
     float: right;
     margin: 0 0 10px 10px;
 }
+
+/* -- PAGINATION -- */
+
+.pagination {
+    float: left;
+    width: 100%;
+}
+
+.pagination ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    text-align: center;
+}
+
+.pagination li {
+    margin-left: 1px;
+    padding: 0;
+    display: inline-block;
+}
+
+.pagination li a {
+    color: #a5a5a5;
+    text-align: center;
+    background: #eee;
+    display: block;
+    float: left;
+    width: 28px;
+    height: 28px;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+    .pagination li a.active, .pagination li a:hover {
+        background: #00a1f1;
+        color: #fff;
+    }
+
+    .pagination li a.disabled {
+        cursor:default;
+        opacity:0.5;
+    }
+
+        .pagination li a.disabled:hover {
+            cursor:default;
+            color: #a5a5a5;
+            background: #eee;
+            text-decoration: none;
+        }
+
+    
 
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

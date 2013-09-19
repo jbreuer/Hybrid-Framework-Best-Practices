@@ -6,63 +6,62 @@
     Layout = "Master.cshtml";
 }
 
-<section class="main-content">
-    <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
-    @(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
+<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
 
+<section class="news">
     @*News items overview*@
     @foreach (var n in Model.NewsItems)
     {
-        <p>
+        <article class="newsitem">
             <a href="@n.Url">
                 @n.Title<br />
                 @n.Date.ToString("F")<br />
                 <img src="@n.Image.Crop" alt="@n.Image.Alt" />
             </a>
-        </p>
-    }
-
-    @*Pager*@
-    @if (Model.Pager.Pages.Count() > 1) 
-    {
-        <div class="pagination">	
-
-	        <ul>
-                @if (Model.Pager.IsFirstPage)
-                {
-                    <li><a class="disabled">&lt;</a></li>
-                }
-                else
-                {
-                    <li><a href="?page=@(Model.Pager.CurrentPage - 1)">&lt;</a></li>
-                }
-
-                @foreach (var number in Model.Pager.Pages)
-                {
-                    var distanceFromCurrent = number - Model.Pager.CurrentPage;
-
-                    if (number == Model.Pager.CurrentPage)
-                    {
-                        <li><a class="active">@number</a></li>
-                    }
-
-                    else if ((distanceFromCurrent > -10) && (distanceFromCurrent < 10))
-                    {
-                        <li><a href="?page=@number">@number</a></li>
-                    }
-                }
-
-                @if (Model.Pager.IsLastPage)
-                {
-	                <li><a class="disabled">&gt;</a></li>
-                }
-                else
-                {
-                    <li><a href="?page=@(Model.Pager.CurrentPage + 1)">&gt;</a></li>
-                }
-
-	        </ul>
-
-        </div>
+        </article>
     }
 </section>
+@*Pager*@
+@if (Model.Pager.Pages.Count() > 1) 
+{
+    <div class="pagination">	
+
+	    <ul>
+            @if (Model.Pager.IsFirstPage)
+            {
+                <li><a class="disabled">&lt;</a></li>
+            }
+            else
+            {
+                <li><a href="?page=@(Model.Pager.CurrentPage - 1)">&lt;</a></li>
+            }
+
+            @foreach (var number in Model.Pager.Pages)
+            {
+                var distanceFromCurrent = number - Model.Pager.CurrentPage;
+
+                if (number == Model.Pager.CurrentPage)
+                {
+                    <li><a class="active">@number</a></li>
+                }
+
+                else if ((distanceFromCurrent > -10) && (distanceFromCurrent < 10))
+                {
+                    <li><a href="?page=@number">@number</a></li>
+                }
+            }
+
+            @if (Model.Pager.IsLastPage)
+            {
+	            <li><a class="disabled">&gt;</a></li>
+            }
+            else
+            {
+                <li><a href="?page=@(Model.Pager.CurrentPage + 1)">&gt;</a></li>
+            }
+
+	    </ul>
+
+    </div>
+}

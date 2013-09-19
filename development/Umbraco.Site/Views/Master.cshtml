@@ -8,6 +8,8 @@
 @{
     Layout = null;
     var searchUrl = Umbraco.NiceUrl(Model.Content.TopPage().GetPropertyValue<int>("searchPage"));
+    var hasWidgets = Model.Widgets.Any();
+    var widgetClass = hasWidgets ? "widgetWidth" : null;
 }
 
 <!DOCTYPE html>
@@ -68,7 +70,7 @@
         </header>
         
         <section class="main">
-            <div class="wrapper">
+            <section class="wrapper">
 
                 @*Search form.*@
                 <form action="@searchUrl" method="GET" class="search-form">
@@ -76,15 +78,20 @@
                     <input type="submit" value="Search" />
                 </form>
 
-                @RenderBody()
+                <section class="main-content @widgetClass">
+                    @RenderBody()
+                </section>
 
-                @*Widgets*@
-                <aside id="sidebar">
-		            @foreach (var widget in Model.Widgets)
-                    {
-                        @Html.Partial(widget.View, widget)
-                    }
-	            </aside>
+                @if (hasWidgets)
+                {
+                    @*Widgets*@
+                    <aside id="sidebar">
+		                @foreach (var widget in Model.Widgets)
+                        {
+                            @Html.Partial(widget.View, widget)
+                        }
+	                </aside>
+                }
             </div>
         </section>
     </body>

@@ -9,14 +9,12 @@
     Layout = "Master.cshtml";
 }
 
-<section class="main-content">
-    <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
-    @(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
+<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
 
-    @*An example that the rest of the page can be cached, but this partial view isn't.*@
-    @Html.Action("ShowDates", "Contact", true)
+@*An example that the rest of the page can be cached, but this partial view isn't.*@
+@Html.Action("ShowDates", "Contact", true)
 
-    @*If the contact form would have some logic which could not be cached this could also be a Html.Action.*@
-    @*The Html.Action would still go the ContactController so all logic is in the same controller. *@
-    @Html.Partial("ContactForm", new ContactFormModel())
-</section>
+@*If the contact form would have some logic which could not be cached this could also be a Html.Action.*@
+@*The Html.Action would still go the ContactController so all logic is in the same controller. *@
+@Html.Partial("ContactForm", new ContactFormModel())

@@ -7,24 +7,22 @@
     var gallery = Model.Content.GetCroppedImages("gallery", 400, null, quality:90, cropAlias:"gallery", slimmage:true);
 }
 
-<section class="main-content">
-    <h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
-    @(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
+<h1>@(Model.Content.GetPropertyValue<string>("title"))</h1>
+@(Model.Content.GetPropertyValue<HtmlString>("bodyText"))
 
-    @*Gallery*@
-    @if (gallery.Any())
-    {
-        <div class="gallery">
-            <ul>
-                @foreach (var photo in gallery)
-                {
-                    <li>
-                        <a href="@photo.Url" data-track="@photo.TrackLabel" target="_blank">
-                            <img class="gallery-image" src="@photo.Crop" alt="@photo.Alt" />
-                        </a>
-                    </li>
-                }
-            </ul>
-        </div>
-    }
-</section>
+@*Gallery*@
+@if (gallery.Any())
+{
+    <div class="gallery">
+        <ul>
+            @foreach (var photo in gallery)
+            {
+                <li>
+                    <a href="@photo.Url" data-track="@photo.TrackLabel">
+                        <img class="gallery-image" src="@photo.Crop" alt="@photo.Alt" />
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+}

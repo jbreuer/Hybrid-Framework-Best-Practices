@@ -16,7 +16,7 @@ namespace Umbraco.Extensions.Controllers
 {
     public class NewsOverviewController : BaseSurfaceController
     {
-        //[DonutOutputCache(Duration = 86400, Location = OutputCacheLocation.Server, VaryByCustom = "url;device")]
+        [DonutOutputCache(Duration = 86400, Location = OutputCacheLocation.Server, VaryByCustom = "url;device")]
         public ActionResult NewsOverview()
         {
             var model = GetModel<NewsOverviewModel>();
