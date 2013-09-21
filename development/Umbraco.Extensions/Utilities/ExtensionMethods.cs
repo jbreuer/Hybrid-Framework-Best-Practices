@@ -88,6 +88,11 @@ namespace Umbraco.Extensions.Utilities
         /// <param name="alias"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
+        /// <param name="cropAlias"></param>
+        /// <param name="quality"></param>
+        /// <param name="slimmage"></param>
+        /// <param name="placeholder"></param>
+        /// <param name="altAlias"></param> 
         /// <returns></returns>
         public static MediaItemCrop GetCroppedImage(this IPublishedContent content, string alias, int width, int? height = null, string cropAlias = "", int? quality = null, bool slimmage = false, string placeholder = "", string altAlias = "")
         {
@@ -159,8 +164,10 @@ namespace Umbraco.Extensions.Utilities
         /// <param name="alias"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
+        /// <param name="cropAlias"></param>
         /// <param name="quality"></param>
         /// <param name="slimmage"></param>
+        /// <param name="altAlias"></param>  
         /// <returns></returns>
         public static IEnumerable<MediaItemCrop> GetCroppedImages(this IPublishedContent content, string alias, int width, int? height = null, string cropAlias = "", int? quality = null, bool slimmage = false, string altAlias = "")
         {
