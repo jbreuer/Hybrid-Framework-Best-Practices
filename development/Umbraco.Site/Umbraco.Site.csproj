@@ -231,7 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\functions.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\slimmage.js" />
     <Content Include="Scripts\slimmage.min.js" />
@@ -261,6 +263,7 @@
     <Content Include="Config\ClientDependency.config" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\MacroPartials\" />
