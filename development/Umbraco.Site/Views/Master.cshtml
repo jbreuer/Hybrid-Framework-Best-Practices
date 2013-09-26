@@ -10,9 +10,7 @@
     var searchUrl = Umbraco.NiceUrl(Model.Content.TopPage().GetPropertyValue<int>("searchPage"));
     var hasWidgets = Model.Widgets.Any();
     var widgetClass = hasWidgets ? "widgetWidth" : null;
-}
-
-<!DOCTYPE html>
+}<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -24,8 +22,8 @@
         <title>@MetaData.Current.Title</title>
         
         <meta name="description" content="@MetaData.Current.Description">
-        <meta name="robots" content="@MetaData.Current.Robots" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="@MetaData.Current.Robots">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width">
 
         @*Bundle the js files.*@
@@ -92,7 +90,7 @@
                         }
 	                </aside>
                 }
-            </div>
+            </section>
         </section>
     </body>
 </html>
