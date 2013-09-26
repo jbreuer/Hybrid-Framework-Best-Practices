@@ -72,7 +72,6 @@ namespace Umbraco.Extensions.Events
             //Add all javascript files. These will be bundled and minified.
             //After everything has been bundled (which only happens when debug=false in the web.config) check if there are no errors in the bundled file. Not all files can be bundled.
             bundles.Add(new ScriptBundle("~/bundle/javascript.js").Include(
-                    "~/scripts/jquery-1.10.2.js",
                     "~/umbraco/plugins/TrackMedia/Tracking.js",
                     "~/scripts/jquery.validate.js",
                     "~/scripts/slimmage.js",
