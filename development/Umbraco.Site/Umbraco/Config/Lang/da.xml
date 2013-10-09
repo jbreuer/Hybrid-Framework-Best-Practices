@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="da" intName="Danish" localName="dansk" lcid="6" culture="da-DK">
   <creator>
     <name>The umbraco community</name>
@@ -34,8 +34,7 @@
     <key alias="sort">Sortér</key>
     <key alias="toPublish">Send til udgivelse</key>
     <key alias="translate">Oversæt</key>
-    <key alias="update">Opdatér</key>
-    
+    <key alias="update">Opdatér</key>    
     <key alias="SEOCheckerSchedule">Add scheduled validation</key>
   </area>
   <area alias="assignDomain">
@@ -440,7 +439,7 @@ Ha' en dejlig dag!
 		
 Mange hilsner fra umbraco robotten
 		]]></key>
-    <key alias="mailBodyHtml"><![CDATA[<p>Hej %0%</p> <p>Dette er en automatisk mail for at informere dig om at opgaven <strong>'%1%'</strong> er blevet udførtpå siden <a href="%7%"><strong>'%2%'</strong></a> af brugeren <strong>'%3%'</strong> </p> <div style="margin: 8px 0; padding: 8px; display: block;"> <br /> <a style="color: white; font-weight: bold; background-color: #66cc66; text-decoration : none; margin-right: 20px; border: 8px solid #66cc66; width: 150px;" href="http://%4%/actions/publish.aspx?id=%5%">&nbsp;&nbsp;PUBLISÉr&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #5372c3; text-decoration : none; margin-right: 20px; border: 8px solid #5372c3; width: 150px;" href="http://%4%/actions/editContent.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #ca4a4a; text-decoration : none; margin-right: 20px; border: 8px solid #ca4a4a; width: 150px;" href="http://%4%/actions/delete.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;SLET&nbsp;&nbsp;&nbsp;&nbsp;</a> <br /> </div> <p> <h3>Opdateringssammendrag:</h3> <table style="width: 100%;"> %6% </table> </p> <div style="margin: 8px 0; padding: 8px; display: block;"> <br /> <a style="color: white; font-weight: bold; background-color: #66cc66; text-decoration : none; margin-right: 20px; border: 8px solid #66cc66; width: 150px;" href="http://%4%/actions/publish.aspx?id=%5%">&nbsp;&nbsp;PUBLISÉR&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #5372c3; text-decoration : none; margin-right: 20px; border: 8px solid #5372c3; width: 150px;" href="http://%4%/actions/editContent.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #ca4a4a; text-decoration : none; margin-right: 20px; border: 8px solid #ca4a4a; width: 150px;" href="http://%4%/actions/delete.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;SLET&nbsp;&nbsp;&nbsp;&nbsp;</a> <br /> </div> <p>Hav en fortsat god dag!<br /><br /> De bedste hilsner fra umbraco robotten </p>]]></key>
+    <key alias="mailBodyHtml"><![CDATA[<p>Hej %0%</p> <p>Dette er en automatisk mail for at informere dig om at opgaven <strong>'%1%'</strong> er blevet udførtpå siden <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a> af brugeren <strong>'%3%'</strong> </p> <div style="margin: 8px 0; padding: 8px; display: block;"> <br /> <a style="color: white; font-weight: bold; background-color: #66cc66; text-decoration : none; margin-right: 20px; border: 8px solid #66cc66; width: 150px;" href="http://%4%/actions/publish.aspx?id=%5%">&nbsp;&nbsp;PUBLISÉr&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #5372c3; text-decoration : none; margin-right: 20px; border: 8px solid #5372c3; width: 150px;" href="http://%4%/actions/editContent.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #ca4a4a; text-decoration : none; margin-right: 20px; border: 8px solid #ca4a4a; width: 150px;" href="http://%4%/actions/delete.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;SLET&nbsp;&nbsp;&nbsp;&nbsp;</a> <br /> </div> <p> <h3>Opdateringssammendrag:</h3> <table style="width: 100%;"> %6% </table> </p> <div style="margin: 8px 0; padding: 8px; display: block;"> <br /> <a style="color: white; font-weight: bold; background-color: #66cc66; text-decoration : none; margin-right: 20px; border: 8px solid #66cc66; width: 150px;" href="http://%4%/actions/publish.aspx?id=%5%">&nbsp;&nbsp;PUBLISÉR&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #5372c3; text-decoration : none; margin-right: 20px; border: 8px solid #5372c3; width: 150px;" href="http://%4%/actions/editContent.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp; <a style="color: white; font-weight: bold; background-color: #ca4a4a; text-decoration : none; margin-right: 20px; border: 8px solid #ca4a4a; width: 150px;" href="http://%4%/actions/delete.aspx?id=%5%">&nbsp;&nbsp;&nbsp;&nbsp;SLET&nbsp;&nbsp;&nbsp;&nbsp;</a> <br /> </div> <p>Hav en fortsat god dag!<br /><br /> De bedste hilsner fra umbraco robotten </p>]]></key>
     <key alias="mailSubject">[%0%] Notificering om %1% udført på %2%</key>
     <key alias="notifications">Notificeringer</key>
   </area>
@@ -701,7 +700,7 @@ Mange hilsner fra umbraco robotten
     <key alias="memberType">Medlemstype</key>
     <key alias="nodeTypes">Dokumenttyper</key>
     <key alias="packager">Pakker</key>
-    <key alias="packages">Pakker</key>
+	<key alias="packages">Pakker</key>
     <key alias="python">Python</key>
     <key alias="repositories">Installer fra "repository"</key>
     <key alias="runway">Installer Runway</key>
@@ -739,8 +738,8 @@ Mange hilsner fra umbraco robotten
     <key alias="passwordChanged">Dit kodeord er blevet ændret!</key>
     <key alias="passwordConfirm">Bekræft venligst dit nye kodeord</key>
     <key alias="passwordEnterNew">Indtast dit nye kodeord</key>
-    <key alias="passwordCurrent">Nuværende kodeord</key>
-    <key alias="passwordInvalid">ugyldig nuværende kodeord</key>
+	<key alias="passwordCurrent">Nuværende kodeord</key>
+	<key alias="passwordInvalid">ugyldig nuværende kodeord</key>
     <key alias="passwordIsBlank">Dit nye kodeord må ikke være tomt!</key>
     <key alias="passwordIsDifferent">Dit nye kodeord og dit bekræftede kodeord var ikke ens, forsøg venligst igen!</key>
     <key alias="passwordMismatch">Det bekræftede kodeord matcher ikke det nye kodeord</key>

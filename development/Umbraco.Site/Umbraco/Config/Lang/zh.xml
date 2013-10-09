@@ -2,8 +2,7 @@
 <language alias="zh" intName="Chinese (Simple)" localName="中文（简体，中国）" lcid="0804" culture="zh-CN">
   <creator>
     <name>孙柱梁</name>
-    <link>
-    </link>
+    <link></link>
   </creator>
   <area alias="actions">
     <key alias="assignDomain">管理主机名</key>
@@ -43,11 +42,13 @@
     <key alias="domainCreated">新域名 '%0%' 已创建</key>
     <key alias="domainDeleted">域名 '%0%' 已删除</key>
     <key alias="domainExists">域名 '%0%' 已使用</key>
-    <key alias="domainHelp"><![CDATA[例如：example.com、www.example.com、example.com:8080、<br/>
+    <key alias="domainHelp">
+    <![CDATA[例如：example.com、www.example.com、example.com:8080、<br/>
         https://www.example.com/、example.com/en、……使用 * 代表任意域名，<br/>
-	只需要设置语言部分即可。]]></key>
+	只需要设置语言部分即可。]]>
+	</key>
     <key alias="domainUpdated">域名 '%0%' 已更新</key>
-    <key alias="invalidDomain">域名错误</key>
+    <key alias="invalidDomain">域名错误</key> 
     <key alias="orEdit">编辑当前域名</key>
   </area>
   <area alias="auditTrails">
@@ -498,7 +499,7 @@
     ]]></key>
     <key alias="mailBodyHtml"><![CDATA[<p>%0%：</p>
 
-		  <p>您好！这是一封自动发送的邮件，告诉您任务<strong>'%1%'</strong>已在<a href="%7%"><strong>'%2%'</strong></a>被用户<strong>'%3%'</strong>执行</p>
+		  <p>您好！这是一封自动发送的邮件，告诉您任务<strong>'%1%'</strong>已在<a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a>被用户<strong>'%3%'</strong>执行</p>
 		  <div style="margin: 8px 0; padding: 8px; display: block;">
 				<br />
 				<a style="color: white; font-weight: bold; background-color: #66cc66; text-decoration : none; margin-right: 20px; border: 8px solid #66cc66; width: 150px;" href="http://%4%/actions/publish.aspx?id=%5%">&nbsp;&nbsp;发布&nbsp;&nbsp;</a> &nbsp; 
@@ -587,9 +588,11 @@
   <area alias="publish">
     <key alias="contentPublishedFailedByEvent"><![CDATA[%0% 无法发布，第三方组件造成失败。
     ]]></key>
-    <key alias="contentPublishedFailedByParent"><![CDATA[
+    <key alias="contentPublishedFailedByParent">
+      <![CDATA[
       %0% 不能发布，因为上级页面没有发布。
-    ]]></key>
+    ]]>
+    </key>  
     <key alias="includeUnpublished">包含未发布的子项</key>
     <key alias="inProgress">正在发布，请稍候…</key>
     <key alias="inProgressCounter">%0% 中的 %1% 页面已发布…</key>

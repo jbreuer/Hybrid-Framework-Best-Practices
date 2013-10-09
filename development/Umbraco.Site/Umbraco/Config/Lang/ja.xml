@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="ja" intName="Japanese" localName="日本語" lcid="17" culture="ja-JP">
   <creator>
     <name>umbraco</name>
@@ -505,7 +505,7 @@ Runwayをインストールして作られた新しいウェブサイトがど�
     ]]></key>
     <key alias="mailBodyHtml"><![CDATA[<p>前略 %0% さま</p>
 
-			<p>ユーザー <strong>'%3%'</strong> によりページ <a href="%7%"><strong>'%2%'</strong></a> 上のタスク <strong>'%1%'</strong> から自動的にメールします。</p>
+			<p>ユーザー <strong>'%3%'</strong> によりページ <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a> 上のタスク <strong>'%1%'</strong> から自動的にメールします。</p>
 			<div style="margin: 8px 0; padding: 8px; display: block;">
 				<br />
 				<a style="color: white; font-weight: bold; background-color: #66cc66; text-decoration : none; margin-right: 20px; border: 8px solid #66cc66; width: 150px;" href="http://%4%/actions/publish.aspx?id=%5%">&nbsp;&nbsp;公開&nbsp;&nbsp;</a> &nbsp; 
@@ -593,9 +593,11 @@ Runwayをインストールして作られた新しいウェブサイトがど�
     <key alias="contentPublishedFailedByEvent"><![CDATA[
       サードパーティのエクステンションがキャンセルされたので、%0% は公開できませんでした。
     ]]></key>
-    <key alias="contentPublishedFailedByParent"><![CDATA[
+    <key alias="contentPublishedFailedByParent">
+      <![CDATA[
       親ページが公開されていないので、%0% は公開できませんでした。
-    ]]></key>
+    ]]>
+    </key>
     <key alias="includeUnpublished">非公開の子ページも含めます</key>
     <key alias="inProgress">公開を進めています - 少々お待ちください...</key>
     <key alias="inProgressCounter">%1% ページ中 %0% ページが公開されました...</key>

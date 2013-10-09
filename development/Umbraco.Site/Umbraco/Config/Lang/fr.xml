@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="fr" intName="French" localName="français" lcid="12" culture="fr-FR">
   <creator>
     <name>The umbraco community</name>
@@ -15,7 +15,7 @@
     <key alias="disable">Désactivé</key>
     <key alias="emptyTrashcan">Vider la corbeille</key>
     <key alias="exportDocumentType">Exporter un type</key>
-    <key alias="exportDocumentTypeAsCode">Exporter en .NET</key>
+	<key alias="exportDocumentTypeAsCode">Exporter en .NET</key>
     <key alias="exportDocumentTypeAsCode-Full">Exporter en .NET</key>
     <key alias="importDocumentType">Importer un type</key>
     <key alias="importPackage">Importer Package</key>
@@ -40,14 +40,16 @@
   </area>
   <area alias="assignDomain">
     <key alias="addNew">Ajouter un nouveau domaine</key>
-    <key alias="invalidDomain">Nom d'hôte invalide</key>
+    <key alias="invalidDomain">Nom d'hôte invalide</key>   
     <key alias="domain">Domaine</key>
     <key alias="domainCreated">Le nouveau domaine '%0%' a été créé</key>
     <key alias="domainDeleted">Le domaine '%0%' est supprimé</key>
     <key alias="domainExists">Le domaine '%0%' a déjà été assigné</key>
-    <key alias="domainHelp"><![CDATA[ex: exemple.com, www.exemple.com, exemple.com:8080,<br/>
+    <key alias="domainHelp">
+      <![CDATA[ex: exemple.com, www.exemple.com, exemple.com:8080,<br/>
         https://www.exemple.com/, exemple.com/en, etc... Utiliser * pour 
-	répondre <br/>à n'importe quel domaine et définissez la culture.]]></key>
+	répondre <br/>à n'importe quel domaine et définissez la culture.]]>
+    </key>
     <key alias="domainUpdated">Le domaine '%0%' a été mis à jour</key>
     <key alias="orEdit">ou editer les domaines courants</key>
   </area>
@@ -174,16 +176,20 @@ Exemple: 'email', 'url']]></key>
     <key alias="siterepublishHelp">Le cache du site sera rafraîchi. Tout le contenu publié sera mis à jour, et le contenue non publié restera non publié.</key>
     <key alias="tableColumns">Nombre de colonnes</key>
     <key alias="tableRows">Nombre de lignes</key>
-    <key alias="templateContentAreaHelp"><![CDATA[<strong>Définir un id pour le placeholder</strong> cela vous permet d'injecter du contenu dans le placeholder depuis un template enfant,
-      en référençant cet ID de la manière suivante <code>&lt;asp:content /&gt;</code> element.]]></key>
-    <key alias="templateContentPlaceHolderHelp"><![CDATA[<strong>Séléctionnez un id de placeholder</strong> depuis la liste suivante. Vous pouvez 
+    <key alias="templateContentAreaHelp">
+      <![CDATA[<strong>Définir un id pour le placeholder</strong> cela vous permet d'injecter du contenu dans le placeholder depuis un template enfant,
+      en référençant cet ID de la manière suivante <code>&lt;asp:content /&gt;</code> element.]]>
+    </key>
+    <key alias="templateContentPlaceHolderHelp">
+	<![CDATA[<strong>Séléctionnez un id de placeholder</strong> depuis la liste suivante. Vous pouvez 
       choisir l'id du template maitre.]]></key>
     <key alias="thumbnailimageclickfororiginal">Cliquer sur l'image pour voir l'original</key>
     <key alias="treepicker">Choisir un élément</key>
     <key alias="viewCacheItem">Voir un élemant du Cache</key>
   </area>
   <area alias="dictionaryItem">
-    <key alias="description"><![CDATA[
+    <key alias="description">
+	<![CDATA[
 	Editer les différentes versions traduites pour l'élément 
 '<em>%0%</em>'<br/>Vous pouvez ajouter des langues dans la section 'Langues' du menu de gauche.
    ]]></key>
@@ -351,27 +357,34 @@ Exemple: 'email', 'url']]></key>
     <key alias="databaseErrorWebConfig">Impossible d'enregistrer le fichier web.config. Veuillez modifier la chaine de connection manuellement.</key>
     <key alias="databaseFound">Votre base de données a été trouvée et est identifiée comme</key>
     <key alias="databaseHeader">Configuration de la base de données</key>
-    <key alias="databaseInstall"><![CDATA[Cliquez sur le bouton <strong>installer</strong> pour installer la base de données Umbraco %0%
-	]]></key>
+    <key alias="databaseInstall">
+	<![CDATA[Cliquez sur le bouton <strong>installer</strong> pour installer la base de données Umbraco %0%
+	]]>
+    </key>
     <key alias="databaseInstallDone"><![CDATA[Umbraco %0% vient de configurer votre base de données. Appuyer sur <strong>Suivant</strong> pour continuer.]]></key>
-    <key alias="databaseNotFound"><![CDATA[<p>Base de données non trouvée! Veuillez vérifier que les informations de connexion à la base de données situées dans le fichier "web.config" sont correctes.</p>
+    <key alias="databaseNotFound">
+	<![CDATA[<p>Base de données non trouvée! Veuillez vérifier que les informations de connexion à la base de données situées dans le fichier "web.config" sont correctes.</p>
               <p>Pour se faire, veuillez éditer le fichier "web.config" (avec Visual Studio ou votre editeur texte préféré), ajouter la chaine de connexion à votre base dans la clé nommée "umbracoDbDSN" et enregister le fichier. </p>
               <p>
               Cliquez ensuite sur le bouton <strong>Réessayer</strong>.<br />
 		Plus d'information sur l'édition du web.config
 		<a href="http://umbraco.org/redir/installWebConfig" target="_blank"> ici </a>.</p>]]></key>
-    <key alias="databaseText"><![CDATA[Pour achever cette étape, vous devez être en possession d'informations relatives à votre serveur de base de données ("chaine de connexion").<br />
+    <key alias="databaseText">
+	<![CDATA[Pour achever cette étape, vous devez être en possession d'informations relatives à votre serveur de base de données ("chaine de connexion").<br />
         Veuillez contacter votre hébergeur si necessaire.
         Si vous installez sur une machine locale ou un serveur vous pourriez avoir besoin d'informations de votre administrateur système.]]></key>
-    <key alias="databaseUpgrade"><![CDATA[
+    <key alias="databaseUpgrade">
+	<![CDATA[
       <p>
 	Cliquer sur le bouton <strong>Mettre à jour</strong> pour mettre à jour votre base de données pour Umbraco %0%</p>
       <p>
       Pas d'inquiétude - aucun contenu ne sera supprimé et tout continuera à fonctionner comme avant!
       </p>    
       ]]></key>
-    <key alias="databaseUpgradeDone"><![CDATA[Votre base de donnée a été mise a jour pour la dernière version %0%.<br />Cliquer sur <strong>Suivant</strong> pour continuer.
-	]]></key>
+    <key alias="databaseUpgradeDone">
+	<![CDATA[Votre base de donnée a été mise a jour pour la dernière version %0%.<br />Cliquer sur <strong>Suivant</strong> pour continuer.
+	]]>
+    </key>
     <key alias="databaseUpToDate"><![CDATA[Votre base de donnée est à jour!. Cliquez sur <strong>Suivant</strong> pour poursuivre l'assistant d'installation]]></key>
     <key alias="defaultUserChangePass"><![CDATA[<strong>Le password par défaut de l'utilisateur doit être modifié!</strong>]]></key>
     <key alias="defaultUserDisabled"><![CDATA[<strong>L'utilisateur par défaut a été desactivé ou n'a pas l'autorisation d'accéder à Umbraco!</strong></p><p>Aucune action supplémentaire n'est nécessaire. Cliquer sur <b>Suivant</b> pour continuer.]]></key>
@@ -384,42 +397,57 @@ Exemple: 'email', 'url']]></key>
     <key alias="permissionsAffectedFolders">Liste des fichiers et répertoires modifiés</key>
     <key alias="permissionsAffectedFoldersMoreInfo">Plus d'information sur le paramétrage des permissions pour Umbraco ici</key>
     <key alias="permissionsAffectedFoldersText">Vous devez accorder au processus du pool d'application de votre site l'autorisation de modification pour les fichiers/répertoire suivants</key>
-    <key alias="permissionsAlmostPerfect"><![CDATA[<strong>Le paramètrage des permissions est presque parfait!</strong><br /><br />
-        vous devriez pouvoir lancer Umbraco sans rencontrer de problèmes, mais vous n'avez pas l'autorisation d'installer des packages qui sont pourtant recommandé pour tirer le maximum d'Umbraco.]]></key>
+    <key alias="permissionsAlmostPerfect">
+    <![CDATA[<strong>Le paramètrage des permissions est presque parfait!</strong><br /><br />
+        vous devriez pouvoir lancer Umbraco sans rencontrer de problèmes, mais vous n'avez pas l'autorisation d'installer des packages qui sont pourtant recommandé pour tirer le maximum d'Umbraco.]]>
+    </key>
     <key alias="permissionsHowtoResolve">Comment résoudre</key>
     <key alias="permissionsHowtoResolveLink">Cliquer ici pour lire la version texte</key>
     <key alias="permissionsHowtoResolveText"><![CDATA[Visionnez notre <strong>tutorial vidéo</strong> pour apprendre comment définir au mieux les permissions de fichiers pour Umbraco ou lisez la version texte.]]></key>
-    <key alias="permissionsMaybeAnIssue"><![CDATA[<strong>Vos paramétrages de permissions fichiers peuvent poser des problèmes!</strong>
+    <key alias="permissionsMaybeAnIssue">
+    <![CDATA[<strong>Vos paramétrages de permissions fichiers peuvent poser des problèmes!</strong>
       <br/><br />
       vous devriez pouvoir lancer Umbraco sans rencontrer de problèmes, mais vous n'avez pas l'autorisation de créer des repertoires ou d'installer des packages qui sont pourtant recommandé pour tirer le maximum d'Umbraco
-	]]></key>
-    <key alias="permissionsNotReady"><![CDATA[<strong>Le paramétrage de vos permissions fichiers n'est pas adapté pour Umbraco!</strong>
+	]]>
+    </key>
+    <key alias="permissionsNotReady">
+	<![CDATA[<strong>Le paramétrage de vos permissions fichiers n'est pas adapté pour Umbraco!</strong>
           <br /><br />
-          Pour pouvoir lancer Umbraco, vous devez mettre à jour le paramétrages des permissions fichiers.]]></key>
-    <key alias="permissionsPerfect"><![CDATA[<strong>Votre paramétrage de permissions fichiers est parfait!</strong><br /><br />
-              Vous êtes prêt a lancer Umbradco et installer des packages!]]></key>
+          Pour pouvoir lancer Umbraco, vous devez mettre à jour le paramétrages des permissions fichiers.]]>
+    </key>
+    <key alias="permissionsPerfect">
+    <![CDATA[<strong>Votre paramétrage de permissions fichiers est parfait!</strong><br /><br />
+              Vous êtes prêt a lancer Umbradco et installer des packages!]]>
+    </key>
     <key alias="permissionsResolveFolderIssues">Problème de répertoire en cours de résolution</key>
     <key alias="permissionsResolveFolderIssuesLink">Cliquer sur ce lien pour plus d'information sur les problèmes liés à ASP.NET et la création de répertoire</key>
     <key alias="permissionsSettingUpPermissions">Paramétrage des permissions fichiers</key>
-    <key alias="permissionsText"><![CDATA[
+    <key alias="permissionsText">
+    <![CDATA[
       Umbraco nécessite les droits ecriture/modification sur certains répertoires pour stocker les fichiers comme les images et les PDF.
       il stocke aussi des fichiers temporaires (ex: cache) pour améliorer les performances de votre site.
-    ]]></key>
+    ]]>
+    </key>
     <key alias="runwayFromScratch">I want to start from scratch'</key>
-    <key alias="runwayFromScratchText"><![CDATA[
+    <key alias="runwayFromScratchText">
+    <![CDATA[
         Votre site est complétement vide pour le moment, ce qui est une bonne chose si vous souhaitez démarrer depuis zéro et créer vos propres type de document et templates. 
         (<a href="http://umbraco.tv/documentation/videos/for-site-builders/foundation/document-types">Voici comment procéder</a>)
         Vous pouvez aussi choisir d'installer Runway plus tard. Veuillez pour cela vous rendre dans la section Developer et choisir Packages.
-      ]]></key>
+      ]]>
+    </key>
     <key alias="runwayHeader">Vous venez jsute de terminer l'installation d'une instance d'Umbraco. Que souhaitez-vous faire maintenant?</key>
     <key alias="runwayInstalled">Runway a été installé avec succès</key>
-    <key alias="runwayInstalledText"><![CDATA[
+    <key alias="runwayInstalledText">
+    <![CDATA[
       Vous avez la base d'umbraco en place. Sélectionnez quel modules vous souhaitez installer maintenant.<br />
       Voici une liste des modules que nous recommendons, vérifiez celui que vous souhcheck off the ones you would like to install, or view the <a href="#" onclick="toggleModules(); return false;" id="toggleModuleList">full list of modules</a>
-      ]]></key>
+      ]]>
+    </key>
     <key alias="runwayOnlyProUsers">Utilisateurs expérimentés seulement</key>
     <key alias="runwaySimpleSite">Je veux commencer avec un site simple</key>
-    <key alias="runwaySimpleSiteText"><![CDATA[
+    <key alias="runwaySimpleSiteText">
+    <![CDATA[
       <p>
       "Runway" est site web simple fournissant quelques types de document simple et quelques templates. Le logiciel d'installation peut installer Runway pour vous automatiquement, 
         mais vous pouvez facilement l'editer, l'étendre ou le supprimer. Il n'est pas indisapensable et vous pouvez parfaitement utiliser Umbraco sans. Cependant, 
@@ -430,7 +458,8 @@ Exemple: 'email', 'url']]></key>
         <em>Voici les éléments inclus dans Runway:</em> Page d'accueil, page de mise en route, installation de module de page.<br />
         <em>Modules optionnels:</em> Navigation principale, Plan du site, Contact, Gallerie.
         </small>
-      ]]></key>
+      ]]>
+    </key>
     <key alias="runwayWhatIsRunway">Qu'est ce que Runway</key>
     <key alias="step1">Etape 1/5 Accepter la licence</key>
     <key alias="step2">Etape 2/5: Configuration de la base de données</key>
@@ -438,24 +467,35 @@ Exemple: 'email', 'url']]></key>
     <key alias="step4">Etape 4/5: Vérification de la sécurité</key>
     <key alias="step5">Etape 5/5: Umbraco est prêt</key>
     <key alias="thankYou">Merci d'avoir choisi Umbraco</key>
-    <key alias="theEndBrowseSite"><![CDATA[<h3>Visitez votre nouveau site</h3>
-Vous venez d'installer Runway, pourquoi ne pas voir à quoi il ressemble.]]></key>
-    <key alias="theEndFurtherHelp"><![CDATA[<h3>Besoin d'aide et d'informations</h3>
-Obtenez de l'aide de notre communauté, parcourez la documentation ou regarder quelques vidéos gratuites décrivant les meilleures pratiques pour construire un site simple, comment utiliser les packages et un guide sur les termes utilisés sur Umbraco]]></key>
+    <key alias="theEndBrowseSite">
+<![CDATA[<h3>Visitez votre nouveau site</h3>
+Vous venez d'installer Runway, pourquoi ne pas voir à quoi il ressemble.]]>
+</key>
+    <key alias="theEndFurtherHelp">
+<![CDATA[<h3>Besoin d'aide et d'informations</h3>
+Obtenez de l'aide de notre communauté, parcourez la documentation ou regarder quelques vidéos gratuites décrivant les meilleures pratiques pour construire un site simple, comment utiliser les packages et un guide sur les termes utilisés sur Umbraco]]>
+</key>
     <key alias="theEndHeader">Umbraco %0% est installé et prêt à l'emploi</key>
-    <key alias="theEndInstallFailed"><![CDATA[Pour finaliser l'installation, vous aurez besoin de
-        d'éditer manuellement <strong>le fichier /web.config </strong> et mettre à jour l'entrée AppSetting <strong>umbracoConfigurationStatus</strong> en dessous de la valeur de <strong>'%0%'</strong>.]]></key>
+    <key alias="theEndInstallFailed">
+	<![CDATA[Pour finaliser l'installation, vous aurez besoin de
+        d'éditer manuellement <strong>le fichier /web.config </strong> et mettre à jour l'entrée AppSetting <strong>umbracoConfigurationStatus</strong> en dessous de la valeur de <strong>'%0%'</strong>.]]>
+    </key>
     <key alias="theEndInstallSuccess"><![CDATA[Vous pouvez <strong>commencer dès maintenant</strong> en cliquant sur le bouton "Lancer Umbraco" ci-dessous. <br />si vous êtes <strong>un nouvel utilisateur d'Umbraco</strong>, 
-vous pourrez trouver des tonnes de ressources sur nos pages de tutoriaux.]]></key>
-    <key alias="theEndOpenUmbraco"><![CDATA[<h3>Lancer Umbraco</h3>
-Pour gerer votre site, accéder simplement au back office et commencez à contribuer du contenu, modifiez les templates et ajoutez de nouvelle fonctionnalités]]></key>
+vous pourrez trouver des tonnes de ressources sur nos pages de tutoriaux.]]>
+	</key>
+    <key alias="theEndOpenUmbraco">
+	<![CDATA[<h3>Lancer Umbraco</h3>
+Pour gerer votre site, accéder simplement au back office et commencez à contribuer du contenu, modifiez les templates et ajoutez de nouvelle fonctionnalités]]>
+	</key>
     <key alias="Unavailable">La connection à la base de données à échouée.</key>
     <key alias="Version3">Umbraco Version 3</key>
     <key alias="Version4">Umbraco Version 4</key>
     <key alias="watch">Visionner</key>
-    <key alias="welcomeIntro"><![CDATA[Cet assistant vous guidera à travers le processus de configuration d'<strong>umbraco %0%</strong> pour une nouvelle installation ou une mise à jour depuis une version précédente.
+    <key alias="welcomeIntro">
+	<![CDATA[Cet assistant vous guidera à travers le processus de configuration d'<strong>umbraco %0%</strong> pour une nouvelle installation ou une mise à jour depuis une version précédente.
                                 <br /><br />
-                                Cliquez sur le bouton <strong>"suivant"</strong> pour demarrer l'assistant.]]></key>
+                                Cliquez sur le bouton <strong>"suivant"</strong> pour demarrer l'assistant.]]>
+    </key>
   </area>
   <area alias="language">
     <key alias="cultureCode">Code culture</key>
@@ -489,7 +529,8 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
   </area>
   <area alias="notifications">
     <key alias="editNotifications">Editer la notification pour %0%</key>
-    <key alias="mailBody"><![CDATA[
+    <key alias="mailBody">
+	<![CDATA[
       Bonjour %0%
 
       Ceci est un email automatique pour vous informer que la tâche '%1%' a été activée sur la page '%2%' par l'utilisateur '%3%'
@@ -499,11 +540,13 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
       Bonne journée!
 
       Salutation du robot Umbraco
-    ]]></key>
-    <key alias="mailBodyHtml"><![CDATA[<p>Bonjour %0%</p>
+    ]]>
+    </key>
+    <key alias="mailBodyHtml">
+	<![CDATA[<p>Bonjour %0%</p>
 
 		  <p>Ceci est un email automatique pour vous informer que la tâche <strong>'%1%'</strong> 
-		  a été activée sur la page <strong>'%2%'</strong> 
+		  a été activée sur la page <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a> 
 		  par l'utilisateur <strong>'%3%'</strong>
 	  </p>
 		  <div class="buttons">
@@ -530,23 +573,28 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
 
 		  <p>Bonne journée !<br /><br />
 			  Salutation du robot Umbraco
-		  </p>]]></key>
+		  </p>]]>
+    </key>
     <key alias="mailSubject">[%0%] Notification sur %1% achevée sur %2%</key>
     <key alias="notifications">Notifications</key>
   </area>
   <area alias="packager">
-    <key alias="chooseLocalPackageText"><![CDATA[
+    <key alias="chooseLocalPackageText">
+	<![CDATA[
 	Séléctionnez un package sur votre machine, en cliquant sur le bouton Parcourir.<br />
          Lespackages umbraco ont une extension en ".umb" ou ".zip".
-      ]]></key>
+      ]]>
+    </key>
     <key alias="packageAuthor">Auteur</key>
     <key alias="packageDemonstration">Demonstration</key>
     <key alias="packageDocumentation">Documentation</key>
     <key alias="packageMetaData">Meta données du package</key>
     <key alias="packageName">Nom du package</key>
     <key alias="packageNoItemsHeader">Le package ne contient aucun élément</key>
-    <key alias="packageNoItemsText"><![CDATA[Ce package ne contient aucun élément à desinstaller.<br/><br/>
-      Vous pouvez sans risque le supprimer de votre système en cliquant sur le bouton "Desinstaller le package" ci-dessous.]]></key>
+    <key alias="packageNoItemsText">
+	<![CDATA[Ce package ne contient aucun élément à desinstaller.<br/><br/>
+      Vous pouvez sans risque le supprimer de votre système en cliquant sur le bouton "Desinstaller le package" ci-dessous.]]>
+    </key>
     <key alias="packageNoUpgrades">Aucune mises à jour disponibles</key>
     <key alias="packageOptions">Options du package</key>
     <key alias="packageReadme">Informations sur le package</key>
@@ -555,9 +603,11 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
     <key alias="packageUninstalledHeader">Le package a été supprimé</key>
     <key alias="packageUninstalledText">Le package a été supprimé avec succès</key>
     <key alias="packageUninstallHeader">Supprimer le package</key>
-    <key alias="packageUninstallText"><![CDATA[Vous pouvez décoché ci-dessous les éléments du package que vous souhaitez conserver. Quand vous cliquerez sur "Confirner la suppression" tous les éléments selectionnés seront supprimés.<br />
+    <key alias="packageUninstallText">
+	<![CDATA[Vous pouvez décoché ci-dessous les éléments du package que vous souhaitez conserver. Quand vous cliquerez sur "Confirner la suppression" tous les éléments selectionnés seront supprimés.<br />
       <span style="color: Red; font-weight: bold;">Attention:</span> tout document, media, etc ayant une dependance sur les éléments que vous allez supprimer, peuvent cesser de fonctionner ou conduire à des instabilités,
-      donc supprimer avec prudence. Si vous avez un doute contactez l'auteur du package.]]></key>
+      donc supprimer avec prudence. Si vous avez un doute contactez l'auteur du package.]]>
+    </key>
     <key alias="packageUpgradeDownload">Obtenir les mises à jour depuis le dépot</key>
     <key alias="packageUpgradeHeader">Mettre le package à jour</key>
     <key alias="packageUpgradeInstructions">Instructions de mise à jour</key>
@@ -590,21 +640,27 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
     <key alias="paSimpleHelp">Si vous désirez mettre en place une protection basée sur un nom d'utilisateur et un mot de passe unique</key>
   </area>
   <area alias="publish">
-    <key alias="contentPublishedFailedByEvent"><![CDATA[
+    <key alias="contentPublishedFailedByEvent">
+	<![CDATA[
       %0% n'a pas pu être publié, car une extension tiers a annulé la publication.
-    ]]></key>
-    <key alias="contentPublishedFailedByParent"><![CDATA[
+    ]]>
+    </key>
+    <key alias="contentPublishedFailedByParent">
+      <![CDATA[
       %0% n'a pas pu être publié, car une page parent n'est pas publiée.
-    ]]></key>
+    ]]>
+    </key>
     <key alias="includeUnpublished">Inclure les pages enfants</key>
     <key alias="inProgress">Publication en cours - patience...</key>
     <key alias="inProgressCounter">%0% page(s) sur %1% a/ont été(s) publiée(s)...</key>
     <key alias="nodePublish">%0% a été publié</key>
     <key alias="nodePublishAll">%0% et les sous-pages ont été publiées</key>
     <key alias="publishAll">Publier tous les enfants</key>
-    <key alias="publishHelp"><![CDATA[Cliquer sur <em>ok</em> pour publier <strong>%0%</strong> et donc rendre ce contenu visible au public.<br/><br />
+    <key alias="publishHelp">
+    	<![CDATA[Cliquer sur <em>ok</em> pour publier <strong>%0%</strong> et donc rendre ce contenu visible au public.<br/><br />
       Vous publier cette page et toutes ces sous-pages en cochant la case <em>Publier tous les enfants </em> ci-dessous.
-      ]]></key>
+      ]]>
+    </key>
   </area>
   <area alias="relatedlinks">
     <key alias="addExternal">Ajouter un lien externe</key>
@@ -769,10 +825,12 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
   </area>
   <area alias="translation">
     <key alias="assignedTasks">Tâches qui vous sont assignées</key>
-    <key alias="assignedTasksHelp"><![CDATA[La liste ci-dessous contient les taches de traduction <strong> qui vous sont assignées</strong>. Pour accéder à une vue détaillée des commentaires, veuillez cliquer sur "Details" ou sur le nom de la page.<br/>
+    <key alias="assignedTasksHelp">
+	<![CDATA[La liste ci-dessous contient les taches de traduction <strong> qui vous sont assignées</strong>. Pour accéder à une vue détaillée des commentaires, veuillez cliquer sur "Details" ou sur le nom de la page.<br/>
 	Vous pouvez télécharger la page au format XML en cliquant sur le lien "Télécharger au format XML"
 	Pour fermer un tâche de tradution, veuillez vous rendre sur la vue détaillée et cliquer sur le bouton "Fermer".
-    ]]></key>
+    ]]>
+    </key>
     <key alias="closeTask">Fermer la tâche</key>
     <key alias="details">Détails de la traduction</key>
     <key alias="downloadAllAsXml">Télécharger toutes les tâches de traduction au format XML</key>
@@ -780,7 +838,8 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
     <key alias="DownloadXmlDTD">Télécharger la DTD au format XML</key>
     <key alias="fields">Champs</key>
     <key alias="includeSubpages">Incluere les pages enfant</key>
-    <key alias="mailBody"><![CDATA[
+    <key alias="mailBody">
+    <![CDATA[
       Bonjour %0%
 
       Ceci est un email automatique pour vous informer qu'une demande de traduction pour le document '%1%' dans '%5%' a été faite par %2%.
@@ -794,14 +853,17 @@ Pour gerer votre site, accéder simplement au back office et commencez à contri
       Bonne journée !
 
       Salutation du robot Umbraco
-    ]]></key>
+    ]]>
+    </key>
     <key alias="mailSubject">[%0%] Tâche de traduction pour %1%</key>
     <key alias="noTranslators">Aucun utilisateur disposant des droits de traduction n'a été trouvé. Veuillez créer un utilisateur disposant de ce droit avant d'envoyer des demandes de traduction de contenu.</key>
     <key alias="ownedTasks">Tâches crées par vous</key>
-    <key alias="ownedTasksHelp"><![CDATA[La liste ci-dessous affiche les pages <strong>crées par vous</strong>. Pour accéder à une vue détaillée incluant les commentaires, 
+    <key alias="ownedTasksHelp">
+	<![CDATA[La liste ci-dessous affiche les pages <strong>crées par vous</strong>. Pour accéder à une vue détaillée incluant les commentaires, 
      cliquez sur "Détails" ou sur le nom de la page. Vous pouvez également télécharger la page au format XML en cliquant sur "Télécharger au format Xml". 
      Pour fermer un tâche de traduction, veuillez vous rendre sur la vue détaillée et cliquer sur le bouton "Fermer".
-    ]]></key>
+    ]]>
+    </key>
     <key alias="pageHasBeenSendToTranslation">La page '%0%' a été envoyé pour traduction</key>
     <key alias="sendToTranslate">Envoyer à la traduction</key>
     <key alias="taskAssignedBy">Assigné par</key>

@@ -16387,23 +16387,21 @@ tinymce.ForceBlocks = function(editor) {
 
 		function defaultFormats() {
 			register({
-			    alignleft: [
-                    { selector: 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles: { textAlign: 'left' }, defaultBlock: 'div' },
-                    { selector: 'table', collapsed: false, styles: { 'float': 'left' } },
-                    { selector: 'img', classes: 'align-left' }
-			    ],
+				alignleft : [
+					{selector : 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'left'}, defaultBlock: 'div'},
+					{selector : 'img,table', collapsed : false, styles : {'float' : 'left'}}
+				],
 
-			    aligncenter: [
-                    { selector: 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles: { textAlign: 'center' }, defaultBlock: 'div' },
-                    { selector: 'img', classes: 'align-center' },
-                    { selector: 'table', collapsed: false, styles: { marginLeft: 'auto', marginRight: 'auto' } }
-			    ],
+				aligncenter : [
+					{selector : 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'center'}, defaultBlock: 'div'},
+					{selector : 'img', collapsed : false, styles : {display : 'block', marginLeft : 'auto', marginRight : 'auto'}},
+					{selector : 'table', collapsed : false, styles : {marginLeft : 'auto', marginRight : 'auto'}}
+				],
 
-			    alignright: [
-                    { selector: 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles: { textAlign: 'right' }, defaultBlock: 'div' },
-                    { selector: 'table', collapsed: false, styles: { 'float': 'right' } },
-                    { selector: 'img', classes: 'align-right' }
-			    ],
+				alignright : [
+					{selector : 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'right'}, defaultBlock: 'div'},
+					{selector : 'img,table', collapsed : false, styles : {'float' : 'right'}}
+				],
 
 				alignfull : [
 					{selector : 'figure,p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'justify'}, defaultBlock: 'div'}
