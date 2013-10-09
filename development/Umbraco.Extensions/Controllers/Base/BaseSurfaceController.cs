@@ -26,6 +26,7 @@ using Umbraco.Web.Mvc;
 
 namespace Umbraco.Extensions.Controllers.Base
 {
+
     public abstract class BaseSurfaceController : SurfaceController, IRenderMvcController
     {
         #region Render MVC
@@ -33,9 +34,13 @@ namespace Umbraco.Extensions.Controllers.Base
         /// <summary>
         /// Checks to make sure the physical view file exists on disk.
         /// </summary>
-        /// <param name="template"></param>
-        /// <returns></returns>
-        protected bool EnsurePhsyicalViewExists(string template)
+        /// <param name="template">
+        /// The Umbraco template.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
+        protected bool EnsurePhysicalViewExists(string template)
         {
             var result = ViewEngines.Engines.FindView(ControllerContext, template, null);
             if (result.View == null)
@@ -58,7 +63,7 @@ namespace Umbraco.Extensions.Controllers.Base
         protected ActionResult CurrentTemplate<T>(T model)
         {
             var template = ControllerContext.RouteData.Values["action"].ToString();
-            if (!EnsurePhsyicalViewExists(template))
+            if (!EnsurePhysicalViewExists(template))
             {
                 return Content("");
             }
