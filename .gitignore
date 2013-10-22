@@ -96,6 +96,7 @@ publish/
 packages/
 
 !development/Umbraco.Site/App_Data/packages
+!development/Umbraco.Site/Umbraco/Developer/Packages
 
 # Windows Azure Build Output
 csx
